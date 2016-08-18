@@ -5,16 +5,7 @@ import styles from './styles.css'
 export class Layout extends React.Component {
 
 	componentWillMount() {
-		this.setState({
-			tab: 'alpha',
-			alpha: 0,
-			charlie: 0,
-			delta: 0,
-			babka: 0,
-			time: 0,
-			hitFactor: 0
-		})
-
+		this.reset()
 		this.inputs = {}
 	}
 
@@ -75,9 +66,22 @@ export class Layout extends React.Component {
 	}
 
 	calculateHitFactor(st) {
-		return st.time > 0
-			? (5 * st.alpha + 3 * st.charlie + 1 * st.delta) / st.time
+		const hf = st.time > 0
+			? (5 * st.alpha + 3 * st.charlie + 1 * st.delta - 10 * st.babka) / st.time
 			: 0;
+		return Math.max(hf, 0)
+	}
+
+	reset() {
+		this.setState({
+			tab: 'alpha',
+			alpha: 0,
+			charlie: 0,
+			delta: 0,
+			babka: 0,
+			time: 0,
+			hitFactor: 0
+		})
 	}
 
 	render() {
@@ -92,10 +96,15 @@ export class Layout extends React.Component {
 						<span className={styles.tabLink}
 							onClick={this.switchTab('delta')}>D<span>{this.state.delta}</span></span>
 					</p>
-					<span className={styles.tabLink}
+					<p>
+						<span className={styles.tabLink}
 						onClick={this.switchTab('babka')}>Б<span>{this.state.babka}</span></span>
-					<span className={styles.tabLink}
+						<span className={styles.tabLink}
 						onClick={this.switchTab('time')}>Время: {this.state.time}</span>
+					</p>
+					<p>
+						<span className={styles.tabLink} onClick={this.reset.bind(this)}>Сброс</span>
+					</p>
 				</div>
 				<div className={styles.tabContainer}>
 					<div {...this.displayIf('alpha')}>
