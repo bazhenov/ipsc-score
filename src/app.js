@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { render } from 'react-dom'
 import styles from './styles.css'
+import { TimeRegister } from './TimeRegister.js'
 
 export class Layout extends React.Component {
 
@@ -124,8 +125,7 @@ export class Layout extends React.Component {
 							{...this.bindTo('babka')}/>
 					</div>
 					<div {...this.displayIf('time')}>
-						<input className={styles.input} type="number" min="0" inputMode="numeric" pattern="[0-9]*"
-							{...this.bindTime('time')}/>
+						<TimeRegister />
 					</div>
 					<div className={styles.hitFactor}>
 						ХФ: {this.hitFactor()}

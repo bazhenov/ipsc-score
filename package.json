@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --colors --compilers js:babel-core/register",
+    "test:watch": "watch-run -p '*/*.js' npm run test"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +20,7 @@
     "babel-preset-react": "^6.11.1",
     "css-loader": "^0.23.1",
     "style-loader": "^0.13.1",
+    "watch-run": "^1.2.4",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1",
     "webpack-livereload-plugin": "^0.8.1"
