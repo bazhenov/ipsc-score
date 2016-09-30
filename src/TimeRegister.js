@@ -44,6 +44,6 @@ export class TimeRegister extends React.Component {
 	}
 
 	render() {
-		return (<input onKeyDown={this.onChange.bind(this)} value={this.value()} />)
+		return (<input onChange={() => {}} onKeyDown={this.onChange.bind(this)} value={this.value()} />)
 	}
 }
