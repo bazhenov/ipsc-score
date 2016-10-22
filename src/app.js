@@ -30,23 +30,6 @@ export class Layout extends React.Component {
 		}
 	}
 
-	bindTime(stateKey) {
-		return {
-			onChange: (e) => {
-				let st = {}
-				let v = e.target.value.replace(/[^0-9]/g, "")
-				let n = parseInt(v)
-				n = n / 100
-				st[stateKey] = Math.abs(Number.isNaN(n) ? 0 : n)
-				this.setState(st)
-			},
-			value: this.state[stateKey],
-			ref: r => {
-				this.inputs[stateKey] = r
-			}
-		}
-	}
-
 	bindTo(stateKey) {
 		return {
 			onChange: (e) => {
@@ -125,7 +108,7 @@ export class Layout extends React.Component {
 							{...this.bindTo('babka')}/>
 					</div>
 					<div {...this.displayIf('time')}>
-						<TimeRegister />
+						<TimeRegister onChangeTime={t => this.setState({time: t})} inputClassName={styles.input}/>
 					</div>
 					<div className={styles.hitFactor}>
 						ХФ: {this.hitFactor()}

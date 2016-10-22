@@ -1,5 +1,5 @@
 {
-  "name": "react-example",
+  "name": "IPSC Score App",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -20,6 +20,7 @@
     "babel-preset-react": "^6.11.1",
     "css-loader": "^0.23.1",
     "enzyme": "^2.4.1",
+    "mocha": "^3.1.2",
     "react-addons-test-utils": "^15.3.2",
     "style-loader": "^0.13.1",
     "watch-run": "^1.2.4",

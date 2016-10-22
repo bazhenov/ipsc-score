@@ -15,15 +15,23 @@ export class TimeRegister extends React.Component {
 		let keyCode = e.keyCode
 		if ( keyCode == 8 ) {
 			this.removeNumber()
+			this.notifyIfNeeded()
 			return true
 		}
 
 		if ( keyCode >= 48 && keyCode < 57 ) {
 			let integer = keyCode - 48
 			this.appendNumber(integer)
+			this.notifyIfNeeded()
 			return true
 		}
 		return false
+	}
+
+	notifyIfNeeded() {
+		if ( this.props.onChangeTime ) {
+			this.props.onChangeTime(this.value())
+		}
 	}
 
 	removeNumber() {
@@ -44,6 +52,6 @@ export class TimeRegister extends React.Component {
 	}
 
 	render() {
-		return (<input onChange={() => {}} onKeyDown={this.onChange.bind(this)} value={this.value()} />)
+		return (<input className={this.props.inputClassName} onChange={() => {}} onKeyDown={this.onChange.bind(this)} value={this.value()} />)
 	}
 }
