@@ -1,11 +1,12 @@
 {
-  "name": "IPSC Score App",
+  "name": "ipsc-scopre-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "mocha --colors --compilers js:babel-core/register test/.setup.js test/*.test.js",
-    "test:watch": "watch-run -i -p '*/*.js' npm run test"
+    "test:watch": "watch-run -i -p '*/*.js' npm run test",
+		"build": "webpack"
   },
   "author": "",
   "license": "ISC",

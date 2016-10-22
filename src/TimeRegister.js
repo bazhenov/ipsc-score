@@ -52,6 +52,10 @@ export class TimeRegister extends React.Component {
 	}
 
 	render() {
-		return (<input className={this.props.inputClassName} onChange={() => {}} onKeyDown={this.onChange.bind(this)} value={this.value()} />)
+		return (<input className={this.props.inputClassName}
+			type="number" min="0" inputMode="numeric" pattern="[0-9]*"
+		 	onChange={() => {}}
+		 	onKeyDown={this.onChange.bind(this)}
+		 	value={this.value()} />)
 	}
 }

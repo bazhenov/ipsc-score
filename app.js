@@ -21953,7 +21953,7 @@
 /* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -21987,12 +21987,12 @@
 		}
 
 		_createClass(TimeRegister, [{
-			key: 'componentWillMount',
+			key: "componentWillMount",
 			value: function componentWillMount() {
 				this.setState({ value: 0 });
 			}
 		}, {
-			key: 'onChange',
+			key: "onChange",
 			value: function onChange(e) {
 				var keyCode = e.keyCode;
 				if (keyCode == 8) {
@@ -22010,14 +22010,14 @@
 				return false;
 			}
 		}, {
-			key: 'notifyIfNeeded',
+			key: "notifyIfNeeded",
 			value: function notifyIfNeeded() {
 				if (this.props.onChangeTime) {
 					this.props.onChangeTime(this.value());
 				}
 			}
 		}, {
-			key: 'removeNumber',
+			key: "removeNumber",
 			value: function removeNumber() {
 				var lastDigit = Math.round(this._value * 100) % 10;
 				this._value = Math.round(this._value * 100 - lastDigit) / 1000;
@@ -22025,21 +22025,25 @@
 				this.setState({ value: this._value });
 			}
 		}, {
-			key: 'appendNumber',
+			key: "appendNumber",
 			value: function appendNumber(i) {
 				this._value = this._value * 10 + i / 100;
 				this._value = Math.round(this._value * 100) / 100;
 				this.setState({ value: this._value });
 			}
 		}, {
-			key: 'value',
+			key: "value",
 			value: function value() {
 				return this._value.toFixed(2).toString();
 			}
 		}, {
-			key: 'render',
+			key: "render",
 			value: function render() {
-				return React.createElement('input', { className: this.props.inputClassName, onChange: function onChange() {}, onKeyDown: this.onChange.bind(this), value: this.value() });
+				return React.createElement("input", { className: this.props.inputClassName,
+					type: "number", min: "0", inputMode: "numeric", pattern: "[0-9]*",
+					onChange: function onChange() {},
+					onKeyDown: this.onChange.bind(this),
+					value: this.value() });
 			}
 		}]);
 
